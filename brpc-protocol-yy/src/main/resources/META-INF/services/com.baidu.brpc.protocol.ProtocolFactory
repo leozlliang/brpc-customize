@@ -1,0 +1,2 @@
+com.baidu.brpc.protocol.standard.BaiduRpcProtocolFactory
+com.yy.lite.brpc.protocol.YypRpcProtocolFactory

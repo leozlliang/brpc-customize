@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yy</groupId>
+    <artifactId>brpc-java-yy</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>brpc-protocol-yy</module>
+        <module>brpc-loadbalance-yy</module>
+        <module>brpc-naming-yy</module>
+        <module>brpc-common-yy</module>
+        <module>brpc-all-yy</module>
+        <module>brpc-gateway-yy</module>
+        <module>brpc-interceptor-yy</module>
+        <module>brpc-spring-boot-starter-interceptor</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <projectName>brpc-java-yy</projectName>
+
+        <java_version>1.8</java_version>
+        <maven_ver>3.0</maven_ver>
+        <brpc_java_ver>2.5.8</brpc_java_ver>
+        <lombok.version>1.18.8</lombok.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <argLine>-Dfile.encoding=UTF-8</argLine>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>yyent-release</id>
+            <name>yyent-release Repository</name>
+            <url>http://nexus.yy.com/music/content/repositories/yyent-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>yyent</id>
+            <name>yyent Repository</name>
+            <url>http://nexus.yy.com/music/content/repositories/yyent/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>YYEnt Public Repositories</name>
+            <url>http://nexus.yy.com/music/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.baidu</groupId>
+                <artifactId>brpc-java</artifactId>
+                <version>${brpc_java_ver}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baidu</groupId>
+                <artifactId>brpc-spring</artifactId>
+                <version>${brpc_java_ver}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.54</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>18.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.1.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>2.8.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>2.8.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>2.23.4</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>${java_version}</source>
+                    <target>${java_version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+
+
+</project>

@@ -1,0 +1,23 @@
+brpc:
+  global:
+    naming:
+      namingServiceUrl: s2s://14.17.106.94:2001?protocol=yyp&accessAccount=brpc_example&accessKey=4b904c57cf586eaa090342355ef4d7a8267e88191e03c2c4fbb9d3020243c6a0
+      namingServiceFactory: com.yy.lite.brpc.namming.s2s.S2sNamingFactory
+      group: "normal"
+    server:
+      interceptorBeanName: logInterceptor
+      port: 8033
+    client:
+      connectTimeoutMillis: 1000
+      readTimeoutMillis: 1000
+      writeTimeoutMillis: 1000
+      maxTotalConnections: 8
+      minIdleConnections: 8
+      maxTryTimes: 3
+  custom:
+    com.yy.lite.brpc.example.api.EchoService:
+      client:
+        protocolType: 100
+    com.yy.lite.userinfo.api.UserInfoService:
+      naming:
+        namingServiceUrl: list://58.215.52.84:18007

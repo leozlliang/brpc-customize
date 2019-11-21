@@ -1,0 +1,2 @@
+com.yy.lite.brpc.protocol.HttpClientJsonProtocolFactory
+com.yy.lite.brpc.protocol.HttpClientProtobufProtocolFactory
